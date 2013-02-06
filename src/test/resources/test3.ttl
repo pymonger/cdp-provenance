@@ -1,0 +1,2 @@
+<http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/cloudsat.hdf/2011-03-24T22_38_59>
+      a       <http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#ObservationalData> .

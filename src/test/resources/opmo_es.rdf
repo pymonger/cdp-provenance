@@ -1,0 +1,1494 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY void "http://rdfs.org/ns/void#" >
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY ns "http://purl.org/net/opmv/ns#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY model "http://openprovenance.org/model/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY opmo "http://openprovenance.org/model/opmo#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY opmo_es "http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:model="http://openprovenance.org/model/"
+     xmlns:ns="http://purl.org/net/opmv/ns#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:void="http://rdfs.org/ns/void#"
+     xmlns:opmo="&model;opmo#"
+     xmlns:opmo_es="http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Ontology rdf:about="http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl">
+        <rdfs:label xml:lang="en">The OWL Ontology for the Open Provenance Model</rdfs:label>
+        <terms:created rdf:datatype="&xsd;date">2010-10-12</terms:created>
+        <dc:contributor>Luc Moreau, Simon Miles, Paolo Missier, Paul Groth, Joe Futrelle, Li Ding,  Daniel Garijo Verdejo, Jeff Pan, Jun Zhao, Mike Jewell</dc:contributor>
+        <terms:title xml:lang="en">The OPM OWL Ontology</terms:title>
+        <dc:title xml:lang="en">The OWL Ontology for the Open Provenance Model</dc:title>
+        <imports rdf:resource="&model;opmo-20101012.owl"/>
+        <imports rdf:resource="http://purl.org/net/opmv/ns"/>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <AnnotationProperty rdf:about="&dc;contributor"/>
+    <AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#account -->
+
+    <ObjectProperty rdf:about="&model;opmo#account">
+        <rdfs:label rdf:datatype="&xsd;string">account</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Object Property to express the member of an OPM entity to some Account.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#Account"/>
+        <rdfs:domain>
+            <Class>
+                <unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&model;opmo#Annotation"/>
+                    <rdf:Description rdf:about="&model;opmo#Edge"/>
+                    <rdf:Description rdf:about="&model;opmo#Node"/>
+                </unionOf>
+            </Class>
+        </rdfs:domain>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#annotation -->
+
+    <ObjectProperty rdf:about="&model;opmo#annotation">
+        <rdfs:label rdf:datatype="&xsd;string">annotation</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Object property to associate an Annotable entity and an Annotation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#Annotable"/>
+        <rdfs:range rdf:resource="&model;opmo#Annotation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#avalue -->
+
+    <ObjectProperty rdf:about="&model;opmo#avalue">
+        <rdfs:label rdf:datatype="&xsd;string">avalue</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Denotes a serialization of an application value associated with an Artifact. Such serialization should have a type (expressed in a type system suitable for the serialization). Serialization technologies include XML, JSON, and ntriples.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#AValue"/>
+        <rdfs:domain rdf:resource="&ns;Artifact"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#cause -->
+
+    <ObjectProperty rdf:about="&model;opmo#cause">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">cause</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The cause of an Edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#Edge"/>
+        <rdfs:range rdf:resource="&model;opmo#Node"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#causeUsed -->
+
+    <ObjectProperty rdf:about="&model;opmo#causeUsed">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">causeUsed</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The cause of a Used edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#Used"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#cause"/>
+        <rdfs:range rdf:resource="&ns;Artifact"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#causeWasControlledBy -->
+
+    <ObjectProperty rdf:about="&model;opmo#causeWasControlledBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">causeWasControlledBy</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The cause of a WasControlledBy edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#WasControlledBy"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#cause"/>
+        <rdfs:range rdf:resource="&ns;Agent"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#causeWasDerivedFrom -->
+
+    <ObjectProperty rdf:about="&model;opmo#causeWasDerivedFrom">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">causeWasDerivedFrom</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The cause of a WasDerivedFrom edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#WasDerivedFrom"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#cause"/>
+        <rdfs:range rdf:resource="&ns;Artifact"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#causeWasGeneratedBy -->
+
+    <ObjectProperty rdf:about="&model;opmo#causeWasGeneratedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">causeWasGeneratedBy</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The cause of a WasGeneratedBy edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#WasGeneratedBy"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#cause"/>
+        <rdfs:range rdf:resource="&ns;Process"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#causeWasTriggeredBy -->
+
+    <ObjectProperty rdf:about="&model;opmo#causeWasTriggeredBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">causeWasTriggeredBy</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The cause of a WasTriggeredBy edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#WasTriggeredBy"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#cause"/>
+        <rdfs:range rdf:resource="&ns;Process"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#effect -->
+
+    <ObjectProperty rdf:about="&model;opmo#effect">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">effect</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The effect of an Edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#Edge"/>
+        <rdfs:range rdf:resource="&model;opmo#Node"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#effectInverse -->
+
+    <ObjectProperty rdf:about="&model;opmo#effectInverse">
+        <rdfs:label rdf:datatype="&xsd;string">effectInverse</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Convenience class introduced to describe the inverse of an effect. It is used to express property chains.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#Edge"/>
+        <rdfs:domain rdf:resource="&model;opmo#Node"/>
+        <inverseOf rdf:resource="&model;opmo#effect"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#effectUsed -->
+
+    <ObjectProperty rdf:about="&model;opmo#effectUsed">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">effectUsed</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The effect of a Used edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#Used"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#effect"/>
+        <rdfs:range rdf:resource="&ns;Process"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#effectUsedInverse -->
+
+    <ObjectProperty rdf:about="&model;opmo#effectUsedInverse">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">effectUsedInverse</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The cause of a Process by means of a Used edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#Used"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#effectInverse"/>
+        <inverseOf rdf:resource="&model;opmo#effectUsed"/>
+        <rdfs:domain rdf:resource="&ns;Process"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#effectWasControlledBy -->
+
+    <ObjectProperty rdf:about="&model;opmo#effectWasControlledBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">effectWasControlledBy</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The effect of a WasControlledBy edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#WasControlledBy"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#effect"/>
+        <rdfs:range rdf:resource="&ns;Process"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#effectWasControlledByInverse -->
+
+    <ObjectProperty rdf:about="&model;opmo#effectWasControlledByInverse">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">effectWasControlledByInverse</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The cause of a Process by means of a WasControlledBy edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#WasControlledBy"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#effectInverse"/>
+        <inverseOf rdf:resource="&model;opmo#effectWasControlledBy"/>
+        <rdfs:domain rdf:resource="&ns;Process"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#effectWasDerivedFrom -->
+
+    <ObjectProperty rdf:about="&model;opmo#effectWasDerivedFrom">
+        <rdfs:label rdf:datatype="&xsd;string">effectWasDerivedFrom</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The effect of a WasDerivedFrom edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#WasDerivedFrom"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#effect"/>
+        <rdfs:range rdf:resource="&ns;Artifact"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#effectWasDerivedFromInverse -->
+
+    <ObjectProperty rdf:about="&model;opmo#effectWasDerivedFromInverse">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">effectWasDerivedFromInverse</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The cause of an Artifact by means of a WasDerivedFrom edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#WasDerivedFrom"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#effectInverse"/>
+        <inverseOf rdf:resource="&model;opmo#effectWasDerivedFrom"/>
+        <rdfs:domain rdf:resource="&ns;Artifact"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#effectWasGeneratedBy -->
+
+    <ObjectProperty rdf:about="&model;opmo#effectWasGeneratedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">effectWasGeneratedBy</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The effect of a WasGeneratedBy edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#WasGeneratedBy"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#effect"/>
+        <rdfs:range rdf:resource="&ns;Artifact"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#effectWasGeneratedByInverse -->
+
+    <ObjectProperty rdf:about="&model;opmo#effectWasGeneratedByInverse">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">effectWasGeneratedByInverse</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The cause of an Artifact by means of a WasGeneratedBy edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#WasGeneratedBy"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#effectInverse"/>
+        <inverseOf rdf:resource="&model;opmo#effectWasGeneratedBy"/>
+        <rdfs:domain rdf:resource="&ns;Artifact"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#effectWasTriggeredBy -->
+
+    <ObjectProperty rdf:about="&model;opmo#effectWasTriggeredBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">effectWasTriggeredBy</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The effect of a WasTriggeredBy edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#WasTriggeredBy"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#effect"/>
+        <rdfs:range rdf:resource="&ns;Process"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#effectWasTriggeredByInverse -->
+
+    <ObjectProperty rdf:about="&model;opmo#effectWasTriggeredByInverse">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">effectWasTriggeredByInverse</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The cause of a Process by means of a WasTriggeredBy edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#WasTriggeredBy"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#effectInverse"/>
+        <inverseOf rdf:resource="&model;opmo#effectWasTriggeredBy"/>
+        <rdfs:domain rdf:resource="&ns;Process"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#endTime -->
+
+    <ObjectProperty rdf:about="&model;opmo#endTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">endTime</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The time at which the agent ended controlling a process.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#OTime"/>
+        <rdfs:domain rdf:resource="&model;opmo#WasControlledBy"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#hasAccount -->
+
+    <ObjectProperty rdf:about="&model;opmo#hasAccount">
+        <rdfs:label rdf:datatype="&xsd;string">hasAccount</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Property that denotes the constituency relationship between an OPM graph and an account, meaning that the object of this property is an account of the subject.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#Account"/>
+        <rdfs:domain rdf:resource="&model;opmo#OPMGraph"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#hasConstituent"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#hasAgent -->
+
+    <ObjectProperty rdf:about="&model;opmo#hasAgent">
+        <rdfs:label rdf:datatype="&xsd;string">hasAgent</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Property that denotes the constituency relationship between an OPM graph and an agent, meaning that the object of this property is an agent of the subject.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#OPMGraph"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#hasConstituent"/>
+        <rdfs:range rdf:resource="&ns;Agent"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#hasArtifact -->
+
+    <ObjectProperty rdf:about="&model;opmo#hasArtifact">
+        <rdfs:label rdf:datatype="&xsd;string">hasArtifact</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Property that denotes the constituency relationship between an OPM graph and an artifact, meaning that the object of this property is an artifact of the subject.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#OPMGraph"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#hasConstituent"/>
+        <rdfs:range rdf:resource="&ns;Artifact"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#hasConstituent -->
+
+    <ObjectProperty rdf:about="&model;opmo#hasConstituent">
+        <rdfs:label rdf:datatype="&xsd;string">hasContituent</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">(Abstract) Property that denotes the constituency relationship between an OPM graph and one of its constituent entity, meaning that the object of this property is a constituent of the subject.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#OPMGraph"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#hasDependency -->
+
+    <ObjectProperty rdf:about="&model;opmo#hasDependency">
+        <rdfs:label rdf:datatype="&xsd;string">hasDependency</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Property that denotes the constituency relationship between an OPM graph and an edge, meaning that the object of this property is an edge of the subject.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#Edge"/>
+        <rdfs:domain rdf:resource="&model;opmo#OPMGraph"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#hasConstituent"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#hasProcess -->
+
+    <ObjectProperty rdf:about="&model;opmo#hasProcess">
+        <rdfs:label rdf:datatype="&xsd;string">hasProcess</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Property that denotes the constituency relationship between an OPM graph and a process, meaning that the object of this property is a process of the subject.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#OPMGraph"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#hasConstituent"/>
+        <rdfs:range rdf:resource="&ns;Process"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#key -->
+
+    <ObjectProperty rdf:about="&model;opmo#key">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">key</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The key of a Property.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#Property"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#property -->
+
+    <ObjectProperty rdf:about="&model;opmo#property">
+        <rdfs:label rdf:datatype="&xsd;string">property</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Object Property that associates an Annotation instance with a (set of) Propery(ies).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#Annotation"/>
+        <rdfs:range rdf:resource="&model;opmo#Property"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#role -->
+
+    <ObjectProperty rdf:about="&model;opmo#role">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">role</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The role of an edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#Role"/>
+        <rdfs:domain>
+            <Class>
+                <unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&model;opmo#Used"/>
+                    <rdf:Description rdf:about="&model;opmo#WasControlledBy"/>
+                    <rdf:Description rdf:about="&model;opmo#WasGeneratedBy"/>
+                </unionOf>
+            </Class>
+        </rdfs:domain>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#startTime -->
+
+    <ObjectProperty rdf:about="&model;opmo#startTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">startTime</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The time at which the agent began controlling a process.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&model;opmo#OTime"/>
+        <rdfs:domain rdf:resource="&model;opmo#WasControlledBy"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#time -->
+
+    <ObjectProperty rdf:about="&model;opmo#time">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">time</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A piece of timing information associated with an EventEdge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#EventEdge"/>
+        <rdfs:range rdf:resource="&model;opmo#OTime"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#usedStar -->
+
+    <ObjectProperty rdf:about="&model;opmo#usedStar">
+        <rdfs:label rdf:datatype="&xsd;string">used*</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A multi-step used property.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:range rdf:resource="&ns;Artifact"/>
+        <rdfs:domain rdf:resource="&ns;Process"/>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ns;used"/>
+            <rdf:Description rdf:about="&model;opmo#wasDerivedFromStar"/>
+        </propertyChainAxiom>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#wasDerivedFromStar -->
+
+    <ObjectProperty rdf:about="&model;opmo#wasDerivedFromStar">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">wasDerivedFrom*</rdfs:label>
+        <rdfs:comment>the transitive closure of wasDerivedFrom</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&ns;Artifact"/>
+        <rdfs:range rdf:resource="&ns;Artifact"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#wasGeneratedByStar -->
+
+    <ObjectProperty rdf:about="&model;opmo#wasGeneratedByStar">
+        <rdfs:label rdf:datatype="&xsd;string">wasGeneratedBy*</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A multi-step wasGeneratedBy edge.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&ns;Artifact"/>
+        <rdfs:range rdf:resource="&ns;Process"/>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&model;opmo#wasDerivedFromStar"/>
+            <rdf:Description rdf:about="&ns;wasGeneratedBy"/>
+        </propertyChainAxiom>
+    </ObjectProperty>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#hasFileRepresentation -->
+
+    <ObjectProperty rdf:about="&opmo_es;hasFileRepresentation"/>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#hasFileType -->
+
+    <ObjectProperty rdf:about="&opmo_es;hasFileType"/>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#hasSignature -->
+
+    <ObjectProperty rdf:about="&opmo_es;hasSignature"/>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#sessionGeneratedArtifacts -->
+
+    <ObjectProperty rdf:about="&opmo_es;sessionGeneratedArtifacts">
+        <rdfs:domain rdf:resource="&model;opmo#OPMGraph"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#hasArtifact"/>
+        <rdfs:range rdf:resource="&ns;Artifact"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#sessionUsedArtifacts -->
+
+    <ObjectProperty rdf:about="&opmo_es;sessionUsedArtifacts">
+        <rdfs:domain rdf:resource="&model;opmo#OPMGraph"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#hasArtifact"/>
+        <rdfs:range rdf:resource="&ns;Artifact"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/opmv/ns#used -->
+
+    <ObjectProperty rdf:about="&ns;used">
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#usedStar"/>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&model;opmo#effectUsedInverse"/>
+            <rdf:Description rdf:about="&model;opmo#causeUsed"/>
+        </propertyChainAxiom>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/opmv/ns#wasDerivedFrom -->
+
+    <ObjectProperty rdf:about="&ns;wasDerivedFrom">
+        <rdfs:seeAlso>http://openprovenance.org/opmo#WasDerivedFrom</rdfs:seeAlso>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#wasDerivedFromStar"/>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&model;opmo#effectWasDerivedFromInverse"/>
+            <rdf:Description rdf:about="&model;opmo#causeWasDerivedFrom"/>
+        </propertyChainAxiom>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/opmv/ns#wasGeneratedBy -->
+
+    <ObjectProperty rdf:about="&ns;wasGeneratedBy">
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#wasGeneratedByStar"/>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&model;opmo#effectWasGeneratedByInverse"/>
+            <rdf:Description rdf:about="&model;opmo#causeWasGeneratedBy"/>
+        </propertyChainAxiom>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/opmv/ns#wasTriggeredBy -->
+
+    <ObjectProperty rdf:about="&ns;wasTriggeredBy">
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&model;opmo#effectWasTriggeredByInverse"/>
+            <rdf:Description rdf:about="&model;opmo#causeWasTriggeredBy"/>
+        </propertyChainAxiom>
+    </ObjectProperty>
+    
+
+
+    <!-- http://rdfs.org/ns/void#exampleResource -->
+
+    <ObjectProperty rdf:about="&void;exampleResource"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#content -->
+
+    <DatatypeProperty rdf:about="&model;opmo#content">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label>content</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Content of the serial representation of Artifact.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#AValue"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#datapropertyAbbreviation -->
+
+    <DatatypeProperty rdf:about="&model;opmo#datapropertyAbbreviation">
+        <rdfs:label rdf:datatype="&xsd;string">datapropertyAbbreviation</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The OPM Ontology offers several data properties that are abbreviation of common properties defined by OPM.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#Annotable"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#encoding -->
+
+    <DatatypeProperty rdf:about="&model;opmo#encoding">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label>encoding</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Denotes how a serialization was constructed. For instance, using the Java bean serializer to create an XML document, by applying a specified transformation to the application data, e.g. anonymisation, by passing a reference to the actual value, or by creating a set of RDF triples.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#AValue"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#exactlyAt -->
+
+    <DatatypeProperty rdf:about="&model;opmo#exactlyAt">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label>exactlyAt</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The event occurred exactly at this time. This is meant to be an abbreviation for an OTime where noEarlierThan and noLaterThan are identical. exactlyAt should be  disjoint from noLaterThan  U noEarlierThan.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#OTime"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#label -->
+
+    <DatatypeProperty rdf:about="&model;opmo#label">
+        <rdfs:label>label</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">This property provides a human-readable version of an OPM entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#Annotable"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#datapropertyAbbreviation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#noEarlierThan -->
+
+    <DatatypeProperty rdf:about="&model;opmo#noEarlierThan">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label>noEarlierThan</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">the event occurred no earlier than this time</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#OTime"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#noLaterThan -->
+
+    <DatatypeProperty rdf:about="&model;opmo#noLaterThan">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label>noLaterThan</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">the event occurred no later than this time</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#OTime"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#pname -->
+
+    <DatatypeProperty rdf:about="&model;opmo#pname">
+        <rdfs:label>pname</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The persistent name of an entity.  Denotes a persistent name that can be used by OPM graph queriers to compare OPM entities across graphs. The scope of this name is intended to be global.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#Annotable"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#datapropertyAbbreviation"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#profile -->
+
+    <DatatypeProperty rdf:about="&model;opmo#profile">
+        <rdfs:label>profile</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">This property applies to an OPM graph and denotes a profile that is supported by that graph.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#Annotable"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#datapropertyAbbreviation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#type -->
+
+    <DatatypeProperty rdf:about="&model;opmo#type">
+        <rdfs:label>type</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The subtype of an entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain rdf:resource="&model;opmo#Annotable"/>
+        <rdfs:subPropertyOf rdf:resource="&model;opmo#datapropertyAbbreviation"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#value -->
+
+    <DatatypeProperty rdf:about="&model;opmo#value">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label>value</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">the value of a role or a property</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:domain>
+            <Class>
+                <unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&model;opmo#Property"/>
+                    <rdf:Description rdf:about="&model;opmo#Role"/>
+                </unionOf>
+            </Class>
+        </rdfs:domain>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#hasParameter -->
+
+    <DatatypeProperty rdf:about="&opmo_es;hasParameter"/>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#hasURI -->
+
+    <DatatypeProperty rdf:about="&opmo_es;hasURI">
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <DatatypeProperty rdf:about="&terms;created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <DatatypeProperty rdf:about="&terms;modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <DatatypeProperty rdf:about="&terms;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#AValue -->
+
+    <Class rdf:about="&model;opmo#AValue">
+        <rdfs:label rdf:datatype="&xsd;string">AValue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Entity"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#encoding"/>
+                <someValuesFrom rdf:resource="&xsd;anyURI"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#content"/>
+                <someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">The serial representation of an artifact Value</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#Account -->
+
+    <Class rdf:about="&model;opmo#Account">
+        <rdfs:label rdf:datatype="&xsd;string">Account</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The class representing an OPM Account.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#Annotable -->
+
+    <Class rdf:about="&model;opmo#Annotable">
+        <rdfs:label rdf:datatype="&xsd;string">Annotable</rdfs:label>
+        <equivalentClass>
+            <Class>
+                <unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&model;opmo#Account"/>
+                    <rdf:Description rdf:about="&model;opmo#Annotation"/>
+                    <rdf:Description rdf:about="&model;opmo#Edge"/>
+                    <rdf:Description rdf:about="&model;opmo#Node"/>
+                    <rdf:Description rdf:about="&model;opmo#OPMGraph"/>
+                    <rdf:Description rdf:about="&model;opmo#Role"/>
+                </unionOf>
+            </Class>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The set of OPM entities that can be annotated.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#Annotation -->
+
+    <Class rdf:about="&model;opmo#Annotation">
+        <rdfs:label rdf:datatype="&xsd;string">Annotation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string">OPM class used to annotate Annotable entities.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#Edge -->
+
+    <Class rdf:about="&model;opmo#Edge">
+        <rdfs:label rdf:datatype="&xsd;string">Edge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A (causal) relationship is represented by an arc and denotes the presence of a dependency between the source of the arc (the effect) and the destination of the arc (the cause).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#Entity -->
+
+    <Class rdf:about="&model;opmo#Entity">
+        <rdfs:label rdf:datatype="&xsd;string">Entity</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The class of all constituents of an OPM graph.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#EventEdge -->
+
+    <Class rdf:about="&model;opmo#EventEdge">
+        <rdfs:label rdf:datatype="&xsd;string">EventEdge</rdfs:label>
+        <equivalentClass>
+            <Class>
+                <unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&model;opmo#Used"/>
+                    <rdf:Description rdf:about="&model;opmo#WasGeneratedBy"/>
+                </unionOf>
+            </Class>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string">An EventEdge denotes an Edge associated with a time instant.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#Node -->
+
+    <Class rdf:about="&model;opmo#Node">
+        <rdfs:label rdf:datatype="&xsd;string">Node</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Node is the class of nodes in an OPM graph. Nodes can be a source or effect of edges.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#OPMGraph -->
+
+    <Class rdf:about="&model;opmo#OPMGraph">
+        <rdfs:label rdf:datatype="&xsd;string">OPMGraph</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The class of all OPM graphs.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#OTime -->
+
+    <Class rdf:about="&model;opmo#OTime">
+        <rdfs:label rdf:datatype="&xsd;string">OTime</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Observed time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#Property -->
+
+    <Class rdf:about="&model;opmo#Property">
+        <rdfs:label rdf:datatype="&xsd;string">Property</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Entity"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#value"/>
+                <allValuesFrom rdf:resource="&rdfs;Literal"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#value"/>
+                <someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Building block allowing for the construction of annotations.  It consists of key-value pair.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#Role -->
+
+    <Class rdf:about="&model;opmo#Role">
+        <rdfs:label rdf:datatype="&xsd;string">Role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Entity"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#value"/>
+                <allValuesFrom rdf:resource="&xsd;string"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A role designates an artifact’s or agent’s function in a process. Roles are constituents of “used”, “was generated by”, and “was controlled by” edges, aimed at distinguishing the nature of the dependency when multiple such edges are connected to a same process.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#Used -->
+
+    <Class rdf:about="&model;opmo#Used">
+        <rdfs:label rdf:datatype="&xsd;string">Used</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Edge"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#role"/>
+                <someValuesFrom rdf:resource="&model;opmo#Role"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#effectUsed"/>
+                <allValuesFrom rdf:resource="&ns;Process"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#causeUsed"/>
+                <someValuesFrom rdf:resource="&ns;Artifact"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#causeUsed"/>
+                <allValuesFrom rdf:resource="&ns;Artifact"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#effectUsed"/>
+                <someValuesFrom rdf:resource="&ns;Process"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&model;opmo#WasControlledBy"/>
+        <disjointWith rdf:resource="&model;opmo#WasDerivedFrom"/>
+        <disjointWith rdf:resource="&model;opmo#WasGeneratedBy"/>
+        <disjointWith rdf:resource="&model;opmo#WasTriggeredBy"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A “used” edge from process to an artifact is a relationship intended to indicate that the process required the availability of the artifact to be able to complete its execution. When several artifacts are connected to a same process by multiple “used” edges, all of them were required for the process to complete.
+
+Used is a class that  encompasses all the properties defined by OPM for this kind of edge. It is a reification of the opmv:used property.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:seeAlso rdf:resource="&model;opmo#Used"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#WasControlledBy -->
+
+    <Class rdf:about="&model;opmo#WasControlledBy">
+        <rdfs:label rdf:datatype="&xsd;string">WasControlledBy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Edge"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#role"/>
+                <someValuesFrom rdf:resource="&model;opmo#Role"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#causeWasControlledBy"/>
+                <allValuesFrom rdf:resource="&ns;Agent"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#causeWasControlledBy"/>
+                <someValuesFrom rdf:resource="&ns;Agent"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#effectWasControlledBy"/>
+                <allValuesFrom rdf:resource="&ns;Process"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#effectWasControlledBy"/>
+                <someValuesFrom rdf:resource="&ns;Process"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&model;opmo#WasDerivedFrom"/>
+        <disjointWith rdf:resource="&model;opmo#WasGeneratedBy"/>
+        <disjointWith rdf:resource="&model;opmo#WasTriggeredBy"/>
+        <rdfs:comment rdf:datatype="&xsd;string">An edge “was controlled by” from a process P to an agent Ag is a  dependency that indicates that the start and end of process P was controlled by agent Ag.
+
+WasControlledBy is a class that  encompasses all the properties defined by OPM for this kind of edge. It is a reification of the opmv:wasControlledBy property.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:seeAlso rdf:resource="&ns;wasControlledBy"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#WasDerivedFrom -->
+
+    <Class rdf:about="&model;opmo#WasDerivedFrom">
+        <rdfs:label rdf:datatype="&xsd;string">WasDerivedFrom</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Edge"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#effectWasDerivedFrom"/>
+                <someValuesFrom rdf:resource="&ns;Artifact"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#causeWasDerivedFrom"/>
+                <someValuesFrom rdf:resource="&ns;Artifact"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#effectWasDerivedFrom"/>
+                <allValuesFrom rdf:resource="&ns;Artifact"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#causeWasDerivedFrom"/>
+                <allValuesFrom rdf:resource="&ns;Artifact"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&model;opmo#WasGeneratedBy"/>
+        <disjointWith rdf:resource="&model;opmo#WasTriggeredBy"/>
+        <rdfs:comment rdf:datatype="&xsd;string">An edge “was derived from” from artifact A2 to artifact A1 is a relationship that indicates that artifact A1 needs to have been generated for A2 to be generated. The piece of state associated with A2 is dependent on the presence of A1 or on the piece of state associated with A1 .
+
+WasDerivedFrom is a class that  encompasses all the properties defined by OPM for this kind of edge. It is a reification of the opmv:wasDerivedFrom property.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:seeAlso rdf:resource="&ns;wasDerivedFrom"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#WasGeneratedBy -->
+
+    <Class rdf:about="&model;opmo#WasGeneratedBy">
+        <rdfs:label rdf:datatype="&xsd;string">WasGeneratedBy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Edge"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#effectWasGeneratedBy"/>
+                <someValuesFrom rdf:resource="&ns;Artifact"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#role"/>
+                <someValuesFrom rdf:resource="&model;opmo#Role"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#effectWasGeneratedBy"/>
+                <allValuesFrom rdf:resource="&ns;Artifact"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#causeWasGeneratedBy"/>
+                <allValuesFrom rdf:resource="&ns;Process"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#causeWasGeneratedBy"/>
+                <someValuesFrom rdf:resource="&ns;Process"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&model;opmo#WasTriggeredBy"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A “was generated by” edge from an artifact to a process is a relationship intended to mean that the process was required to initiate its execution for the artifact to have been generated. When several artifacts are connected to a same process by multiple “was generated by” edges, the process had to have begun, for all of them to be generated.
+
+WasGeneratedBy is a class that  encompasses all the properties defined by OPM for this kind of edge. It is a reification of the opmv:wasGeneratedBy property.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:seeAlso rdf:resource="&ns;wasGeneratedBy"/>
+    </Class>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#WasTriggeredBy -->
+
+    <Class rdf:about="&model;opmo#WasTriggeredBy">
+        <rdfs:label rdf:datatype="&xsd;string">WasTriggeredBy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&model;opmo#Edge"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#causeWasTriggeredBy"/>
+                <someValuesFrom rdf:resource="&ns;Process"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#causeWasTriggeredBy"/>
+                <allValuesFrom rdf:resource="&ns;Process"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#effectWasTriggeredBy"/>
+                <someValuesFrom rdf:resource="&ns;Process"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#effectWasTriggeredBy"/>
+                <allValuesFrom rdf:resource="&ns;Process"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">An edge “was triggered by” from a process P2 to a process P1 is a causal dependency that indicates that the start of process P1 was required for P2 to be able to complete.
+
+WasTriggeredBy is a class that  encompasses all the properties defined by OPM for this kind of edge. It is a reification of the opmv:wasTriggeredBy property.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:seeAlso rdf:resource="&ns;wasTriggeredBy"/>
+    </Class>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#DataFile -->
+
+    <Class rdf:about="&opmo_es;DataFile">
+        <rdfs:subClassOf rdf:resource="&opmo_es;File"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&opmo_es;hasParameter"/>
+                <someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#File -->
+
+    <Class rdf:about="&opmo_es;File">
+        <rdfs:subClassOf rdf:resource="&ns;Artifact"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&opmo_es;hasURI"/>
+                <someValuesFrom rdf:resource="&xsd;anyURI"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&opmo_es;hasSignature"/>
+                <onClass rdf:resource="&opmo_es;Signature"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#HDFFile -->
+
+    <Class rdf:about="&opmo_es;HDFFile">
+        <rdfs:subClassOf rdf:resource="&opmo_es;DataFile"/>
+    </Class>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#Hash -->
+
+    <Class rdf:about="&opmo_es;Hash">
+        <rdfs:subClassOf rdf:resource="&opmo_es;Signature"/>
+    </Class>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#MD5Hash -->
+
+    <Class rdf:about="&opmo_es;MD5Hash">
+        <rdfs:subClassOf rdf:resource="&opmo_es;Hash"/>
+    </Class>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#NetCDFFile -->
+
+    <Class rdf:about="&opmo_es;NetCDFFile">
+        <rdfs:subClassOf rdf:resource="&opmo_es;DataFile"/>
+    </Class>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#Processing -->
+
+    <Class rdf:about="&opmo_es;Processing">
+        <rdfs:subClassOf rdf:resource="&ns;Process"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&opmo_es;hasParameter"/>
+                <someValuesFrom rdf:resource="&xsd;string"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Intended to be analogous to ISO 19115-2 LE_Processing. softwareReference is backed by an executable. runtime parameters is backed by parameters.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#Signature -->
+
+    <Class rdf:about="&opmo_es;Signature">
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&model;opmo#value"/>
+                <someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#SoftwareFile -->
+
+    <Class rdf:about="&opmo_es;SoftwareFile">
+        <rdfs:subClassOf rdf:resource="&opmo_es;File"/>
+        <rdfs:comment>A software file is an artifact that captures the files used in the software execution process. this may include executables, libraries, source code, etc.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/net/opmv/ns#Agent -->
+
+    <Class rdf:about="&ns;Agent">
+        <rdfs:subClassOf rdf:resource="&model;opmo#Node"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/net/opmv/ns#Artifact -->
+
+    <Class rdf:about="&ns;Artifact">
+        <rdfs:subClassOf rdf:resource="&model;opmo#Node"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/net/opmv/ns#Process -->
+
+    <Class rdf:about="&ns;Process">
+        <rdfs:subClassOf rdf:resource="&model;opmo#Node"/>
+    </Class>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ns;Process"/>
+        </members>
+    </rdf:Description>
+    
+
+
+    <!-- http://rdfs.org/ns/void#Dataset -->
+
+    <Class rdf:about="&void;Dataset"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Document -->
+
+    <Class rdf:about="&foaf;Document"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://openprovenance.org/model/opmo -->
+
+    <foaf:Document rdf:about="&model;opmo">
+        <rdf:type rdf:resource="&void;Dataset"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <terms:modified rdf:datatype="&xsd;date">2010-10-13</terms:modified>
+        <void:exampleResource rdf:resource="&model;opmo#Used"/>
+    </foaf:Document>
+    
+
+
+    <!-- http://openprovenance.org/model/opmo#Used -->
+
+    <Thing rdf:about="&model;opmo#Used">
+        <rdfs:label rdf:datatype="&xsd;string">Used</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A “used” edge from process to an artifact is a relationship intended to indicate that the process required the availability of the artifact to be able to complete its execution. When several artifacts are connected to a same process by multiple “used” edges, all of them were required for the process to complete.
+
+Used is a class that  encompasses all the properties defined by OPM for this kind of edge. It is a reification of the opmv:used property.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&model;opmo"/>
+        <rdfs:seeAlso rdf:resource="&model;opmo#Used"/>
+    </Thing>
+    
+
+
+    <!-- http://purl.org/net/opmv/ns#used -->
+
+    <Thing rdf:about="&ns;used"/>
+    
+
+
+    <!-- http://purl.org/net/opmv/ns#wasControlledBy -->
+
+    <Thing rdf:about="&ns;wasControlledBy"/>
+    
+
+
+    <!-- http://purl.org/net/opmv/ns#wasDerivedFrom -->
+
+    <Thing rdf:about="&ns;wasDerivedFrom">
+        <rdfs:seeAlso>http://openprovenance.org/opmo#WasDerivedFrom</rdfs:seeAlso>
+    </Thing>
+    
+
+
+    <!-- http://purl.org/net/opmv/ns#wasGeneratedBy -->
+
+    <Thing rdf:about="&ns;wasGeneratedBy"/>
+    
+
+
+    <!-- http://purl.org/net/opmv/ns#wasTriggeredBy -->
+
+    <Thing rdf:about="&ns;wasTriggeredBy"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

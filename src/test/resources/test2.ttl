@@ -1,0 +1,201 @@
+<http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/cloudsat.hdf/2011-03-24T22_38_59>
+      a       <http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#HDFFile> .
+
+<http://provenance.jpl.nasa.gov/cdp#OTime_208a89cca38514b0bf3d34baf9483331>
+      a       <http://openprovenance.org/model/opmo#OTime> ;
+      <http://openprovenance.org/model/opmo#exactlyAt>
+              "2011-03-23T12:10:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasDerivedFrom_7f57f6c046dd79349fd14644f98ca89e>
+      a       <http://openprovenance.org/model/opmo#WasDerivedFrom> ;
+      <http://openprovenance.org/model/opmo#causeWasDerivedFrom>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/airs.hdf/2011-03-24T22_38_59> ;
+      <http://openprovenance.org/model/opmo#effectWasDerivedFrom>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/match_amsu.nc/2011-03-24T22_39_05> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasDerivedFrom_220b32c40541236f94fecdfeb712007b>
+      a       <http://openprovenance.org/model/opmo#WasDerivedFrom> ;
+      <http://openprovenance.org/model/opmo#causeWasDerivedFrom>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/matchup.pkl/2011-03-24T22_34_59> ;
+      <http://openprovenance.org/model/opmo#effectWasDerivedFrom>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/match_airs.nc/2011-03-24T22_38_59> .
+
+<http://provenance.jpl.nasa.gov/cdp#Role_output>
+      a       <http://openprovenance.org/model/opmo#Role> .
+
+<http://provenance.jpl.nasa.gov/cdp#process/mergeData/2011-03-24T22_39_30.235090970993Z-sciflo-appliance.localdomain-14447>
+      a       <http://purl.org/net/opmv/ns#Process> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasDerivedFrom_e9900195297e3ad74ab77255481b0e07>
+      a       <http://openprovenance.org/model/opmo#WasDerivedFrom> ;
+      <http://openprovenance.org/model/opmo#causeWasDerivedFrom>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/cloudsat.hdf/2011-03-24T22_38_59> ;
+      <http://openprovenance.org/model/opmo#effectWasDerivedFrom>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/match_airs.nc/2011-03-24T22_38_59> .
+
+<http://provenance.jpl.nasa.gov/cdp#process/CloudSat_AIRS_MergeData/2011-03-24T22_35_36.768486022949Z-sciflo-appliance.localdomain-14447>
+      a       <http://purl.org/net/opmv/ns#Process> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasTriggeredBy_6e97027bbbdb1f2d8a7a34b46a08f5fb>
+      a       <http://openprovenance.org/model/opmo#WasTriggeredBy> ;
+      <http://openprovenance.org/model/opmo#causeWasTriggeredBy>
+              <http://provenance.jpl.nasa.gov/cdp#process/CloudSat_AIRS_MergeData/2011-03-24T22_35_36.768486022949Z-sciflo-appliance.localdomain-14447> ;
+      <http://openprovenance.org/model/opmo#effectWasTriggeredBy>
+              <http://provenance.jpl.nasa.gov/cdp#process/mergeData/2011-03-24T22_39_30.235090970993Z-sciflo-appliance.localdomain-14447> .
+
+<http://provenance.jpl.nasa.gov/cdp#Used_e8a263582a313129dc88da0bde957ad5>
+      a       <http://openprovenance.org/model/opmo#Used> ;
+      <http://openprovenance.org/model/opmo#causeUsed>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/matchup.pkl/2011-03-24T22_34_59> ;
+      <http://openprovenance.org/model/opmo#effectUsed>
+              <http://provenance.jpl.nasa.gov/cdp#process/localizeData/2011-03-24T22_37_30.235090970993Z-sciflo-appliance.localdomain-14447> .
+
+<http://provenance.jpl.nasa.gov/cdp#Used_49c9a4b1999d0a82a2f74e7a00972f49>
+      a       <http://openprovenance.org/model/opmo#Used> ;
+      <http://openprovenance.org/model/opmo#causeUsed>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/matchup.pkl/2011-03-24T22_34_59> ;
+      <http://openprovenance.org/model/opmo#effectUsed>
+              <http://provenance.jpl.nasa.gov/cdp#process/CloudSat_AIRS_MergeData/2011-03-24T22_35_36.768486022949Z-sciflo-appliance.localdomain-14447> ;
+      <http://openprovenance.org/model/opmo#role>
+              <http://provenance.jpl.nasa.gov/cdp#Role_input> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasDerivedFrom_9fe2e6424cb7133c34905120c38cf422>
+      a       <http://openprovenance.org/model/opmo#WasDerivedFrom> ;
+      <http://openprovenance.org/model/opmo#causeWasDerivedFrom>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/matchup.pkl/2011-03-24T22_34_59> ;
+      <http://openprovenance.org/model/opmo#effectWasDerivedFrom>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/match_amsu.nc/2011-03-24T22_39_05> .
+
+<http://provenance.jpl.nasa.gov/cdp#process/localizeData/2011-03-24T22_37_30.235090970993Z-sciflo-appliance.localdomain-14447>
+      a       <http://purl.org/net/opmv/ns#Process> .
+
+<http://provenance.jpl.nasa.gov/cdp#Role_localize>
+      a       <http://openprovenance.org/model/opmo#Role> .
+
+<http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/match_airs.nc/2011-03-24T22_38_59>
+      a       <http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#DataFile> .
+
+<http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/airs.hdf/2011-03-24T22_38_59>
+      a       <http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#DataFile> .
+
+<http://provenance.jpl.nasa.gov/cdp#Used_618243dcc2be30f5c9a9253d8e142537>
+      a       <http://openprovenance.org/model/opmo#Used> ;
+      <http://openprovenance.org/model/opmo#causeUsed>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/matchup.pkl/2011-03-24T22_34_59> ;
+      <http://openprovenance.org/model/opmo#effectUsed>
+              <http://provenance.jpl.nasa.gov/cdp#process/mergeData/2011-03-24T22_39_30.235090970993Z-sciflo-appliance.localdomain-14447> .
+
+<http://provenance.jpl.nasa.gov/cdp#OTime_1c461482307cfda2b24d2c200c3784af>
+      a       <http://openprovenance.org/model/opmo#OTime> ;
+      <http://openprovenance.org/model/opmo#exactlyAt>
+              "2011-03-23T12:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasGeneratedBy_418d3d10252b5e0824f8659dd9e7e2fa>
+      a       <http://openprovenance.org/model/opmo#WasGeneratedBy> ;
+      <http://openprovenance.org/model/opmo#causeWasGeneratedBy>
+              <http://provenance.jpl.nasa.gov/cdp#process/localizeData/2011-03-24T22_37_30.235090970993Z-sciflo-appliance.localdomain-14447> ;
+      <http://openprovenance.org/model/opmo#effectWasGeneratedBy>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/cloudsat.hdf/2011-03-24T22_38_59> ;
+      <http://openprovenance.org/model/opmo#role>
+              <http://provenance.jpl.nasa.gov/cdp#Role_localize> .
+
+<http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/matchup.pkl/2011-03-24T22_34_59>
+      a       <http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#DataFile> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasGeneratedBy_1aabdd1e34c7905c243cdefc760319b9>
+      a       <http://openprovenance.org/model/opmo#WasGeneratedBy> ;
+      <http://openprovenance.org/model/opmo#causeWasGeneratedBy>
+              <http://provenance.jpl.nasa.gov/cdp#process/localizeData/2011-03-24T22_37_30.235090970993Z-sciflo-appliance.localdomain-14447> ;
+      <http://openprovenance.org/model/opmo#effectWasGeneratedBy>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/airs.hdf/2011-03-24T22_38_59> ;
+      <http://openprovenance.org/model/opmo#role>
+              <http://provenance.jpl.nasa.gov/cdp#Role_localize> .
+
+<http://provenance.jpl.nasa.gov/cdp#Used_1b6a19dd4b2d00147070e595d73bb735>
+      a       <http://openprovenance.org/model/opmo#Used> ;
+      <http://openprovenance.org/model/opmo#causeUsed>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/airs.hdf/2011-03-24T22_38_59> ;
+      <http://openprovenance.org/model/opmo#effectUsed>
+              <http://provenance.jpl.nasa.gov/cdp#process/mergeData/2011-03-24T22_39_30.235090970993Z-sciflo-appliance.localdomain-14447> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasGeneratedBy_44858ef7be3cbbf72e39421294c25835>
+      a       <http://openprovenance.org/model/opmo#WasGeneratedBy> ;
+      <http://openprovenance.org/model/opmo#causeWasGeneratedBy>
+              <http://provenance.jpl.nasa.gov/cdp#process/mergeData/2011-03-24T22_39_30.235090970993Z-sciflo-appliance.localdomain-14447> ;
+      <http://openprovenance.org/model/opmo#effectWasGeneratedBy>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/match_amsu.nc/2011-03-24T22_39_05> ;
+      <http://openprovenance.org/model/opmo#role>
+              <http://provenance.jpl.nasa.gov/cdp#Role_output> .
+
+<http://provenance.jpl.nasa.gov/cdp#OPMGraph/session/index-sciflo-appliance.localdomain-sflops-2011-03-24T22_35_36.768486022949Z-14447>
+      a       <http://openprovenance.org/model/opmo#OPMGraph> ;
+      <http://openprovenance.org/model/opmo#hasAccount>
+              <http://provenance.jpl.nasa.gov/cdp#session/index-sciflo-appliance.localdomain-sflops-2011-03-24T22_35_36.768486022949Z-14447> ;
+      <http://openprovenance.org/model/opmo#hasAgent>
+              <http://provenance.jpl.nasa.gov/cdp#agent/sflops/sciflo-appliance.localdomain> ;
+      <http://openprovenance.org/model/opmo#hasArtifact>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/match_airs.nc/2011-03-24T22_38_59> , <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/match_amsu.nc/2011-03-24T22_39_05> , <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/airs.hdf/2011-03-24T22_38_59> , <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/matchup.pkl/2011-03-24T22_34_59> , <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/cloudsat.hdf/2011-03-24T22_38_59> ;
+      <http://openprovenance.org/model/opmo#hasDependency>
+              <http://provenance.jpl.nasa.gov/cdp#Used_618243dcc2be30f5c9a9253d8e142537> , <http://provenance.jpl.nasa.gov/cdp#WasGeneratedBy_418d3d10252b5e0824f8659dd9e7e2fa> , <http://provenance.jpl.nasa.gov/cdp#WasGeneratedBy_1aabdd1e34c7905c243cdefc760319b9> , <http://provenance.jpl.nasa.gov/cdp#Used_1b6a19dd4b2d00147070e595d73bb735> , <http://provenance.jpl.nasa.gov/cdp#WasGeneratedBy_44858ef7be3cbbf72e39421294c25835> , <http://provenance.jpl.nasa.gov/cdp#WasDerivedFrom_7f57f6c046dd79349fd14644f98ca89e> , <http://provenance.jpl.nasa.gov/cdp#WasDerivedFrom_810faf4e6994484cb5ee820cfa36ef58> , <http://provenance.jpl.nasa.gov/cdp#WasDerivedFrom_220b32c40541236f94fecdfeb712007b> , <http://provenance.jpl.nasa.gov/cdp#WasDerivedFrom_6ddfe70827bd7152629fac11371d7f0b> , <http://provenance.jpl.nasa.gov/cdp#WasDerivedFrom_e9900195297e3ad74ab77255481b0e07> , <http://provenance.jpl.nasa.gov/cdp#WasTriggeredBy_6e97027bbbdb1f2d8a7a34b46a08f5fb> , <http://provenance.jpl.nasa.gov/cdp#WasGeneratedBy_0115bd7532d055eededf91f6351231ab> , <http://provenance.jpl.nasa.gov/cdp#Used_e54326b30c2deaa4f0fb64309b7398f1> , <http://provenance.jpl.nasa.gov/cdp#Used_e8a263582a313129dc88da0bde957ad5> , <http://provenance.jpl.nasa.gov/cdp#Used_49c9a4b1999d0a82a2f74e7a00972f49> , <http://provenance.jpl.nasa.gov/cdp#WasDerivedFrom_9fe2e6424cb7133c34905120c38cf422> , <http://provenance.jpl.nasa.gov/cdp#WasTriggeredBy_8af25f61578f26f4fd0d45b07a78807c> , <http://provenance.jpl.nasa.gov/cdp#WasControlledBy_efb74fb8238e5ce1213e1093369a7bff> ;
+      <http://openprovenance.org/model/opmo#hasProcess>
+              <http://provenance.jpl.nasa.gov/cdp#process/mergeData/2011-03-24T22_39_30.235090970993Z-sciflo-appliance.localdomain-14447> , <http://provenance.jpl.nasa.gov/cdp#process/CloudSat_AIRS_MergeData/2011-03-24T22_35_36.768486022949Z-sciflo-appliance.localdomain-14447> , <http://provenance.jpl.nasa.gov/cdp#process/localizeData/2011-03-24T22_37_30.235090970993Z-sciflo-appliance.localdomain-14447> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasDerivedFrom_810faf4e6994484cb5ee820cfa36ef58>
+      a       <http://openprovenance.org/model/opmo#WasDerivedFrom> ;
+      <http://openprovenance.org/model/opmo#causeWasDerivedFrom>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/airs.hdf/2011-03-24T22_38_59> ;
+      <http://openprovenance.org/model/opmo#effectWasDerivedFrom>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/match_airs.nc/2011-03-24T22_38_59> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasDerivedFrom_6ddfe70827bd7152629fac11371d7f0b>
+      a       <http://openprovenance.org/model/opmo#WasDerivedFrom> ;
+      <http://openprovenance.org/model/opmo#causeWasDerivedFrom>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/cloudsat.hdf/2011-03-24T22_38_59> ;
+      <http://openprovenance.org/model/opmo#effectWasDerivedFrom>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/match_amsu.nc/2011-03-24T22_39_05> .
+
+<http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/match_amsu.nc/2011-03-24T22_39_05>
+      a       <http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#DataFile> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasGeneratedBy_0115bd7532d055eededf91f6351231ab>
+      a       <http://openprovenance.org/model/opmo#WasGeneratedBy> ;
+      <http://openprovenance.org/model/opmo#causeWasGeneratedBy>
+              <http://provenance.jpl.nasa.gov/cdp#process/mergeData/2011-03-24T22_39_30.235090970993Z-sciflo-appliance.localdomain-14447> ;
+      <http://openprovenance.org/model/opmo#effectWasGeneratedBy>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/match_airs.nc/2011-03-24T22_38_59> ;
+      <http://openprovenance.org/model/opmo#role>
+              <http://provenance.jpl.nasa.gov/cdp#Role_output> .
+
+<http://provenance.jpl.nasa.gov/cdp#Used_e54326b30c2deaa4f0fb64309b7398f1>
+      a       <http://openprovenance.org/model/opmo#Used> ;
+      <http://openprovenance.org/model/opmo#causeUsed>
+              <http://provenance.jpl.nasa.gov/cdp#file://sciflo-appliance.localdomain/tmp/cloudsat.hdf/2011-03-24T22_38_59> ;
+      <http://openprovenance.org/model/opmo#effectUsed>
+              <http://provenance.jpl.nasa.gov/cdp#process/mergeData/2011-03-24T22_39_30.235090970993Z-sciflo-appliance.localdomain-14447> .
+
+<http://provenance.jpl.nasa.gov/cdp#Role_input>
+      a       <http://openprovenance.org/model/opmo#Role> .
+
+<http://provenance.jpl.nasa.gov/cdp#session/index-sciflo-appliance.localdomain-sflops-2011-03-24T22_35_36.768486022949Z-14447>
+      a       <http://openprovenance.org/model/opmo#Account> .
+
+<http://provenance.jpl.nasa.gov/cdp#agent/sflops/sciflo-appliance.localdomain>
+      a       <http://purl.org/net/opmv/ns#Agent> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasTriggeredBy_8af25f61578f26f4fd0d45b07a78807c>
+      a       <http://openprovenance.org/model/opmo#WasTriggeredBy> ;
+      <http://openprovenance.org/model/opmo#causeWasTriggeredBy>
+              <http://provenance.jpl.nasa.gov/cdp#process/CloudSat_AIRS_MergeData/2011-03-24T22_35_36.768486022949Z-sciflo-appliance.localdomain-14447> ;
+      <http://openprovenance.org/model/opmo#effectWasTriggeredBy>
+              <http://provenance.jpl.nasa.gov/cdp#process/localizeData/2011-03-24T22_37_30.235090970993Z-sciflo-appliance.localdomain-14447> .
+
+<http://provenance.jpl.nasa.gov/cdp#WasControlledBy_efb74fb8238e5ce1213e1093369a7bff>
+      a       <http://openprovenance.org/model/opmo#WasControlledBy> ;
+      <http://openprovenance.org/model/opmo#causeWasControlledBy>
+              <http://provenance.jpl.nasa.gov/cdp#agent/sflops/sciflo-appliance.localdomain> ;
+      <http://openprovenance.org/model/opmo#effectWasControlledBy>
+              <http://provenance.jpl.nasa.gov/cdp#process/CloudSat_AIRS_MergeData/2011-03-24T22_35_36.768486022949Z-sciflo-appliance.localdomain-14447> ;
+      <http://openprovenance.org/model/opmo#endTime>
+              <http://provenance.jpl.nasa.gov/cdp#OTime_208a89cca38514b0bf3d34baf9483331> ;
+      <http://openprovenance.org/model/opmo#startTime>
+              <http://provenance.jpl.nasa.gov/cdp#OTime_1c461482307cfda2b24d2c200c3784af> .

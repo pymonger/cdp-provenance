@@ -1,0 +1,2448 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl">
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="void" IRI="http://rdfs.org/ns/void#"/>
+    <Prefix name="terms" IRI="http://purl.org/dc/terms/"/>
+    <Prefix name="opmo" IRI="http://openprovenance.org/model/opmo#"/>
+    <Prefix name="opmo_es" IRI="http://provenance.jpl.nasa.gov/ontologies/2011/11/23/opmo_es.owl#"/>
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="foaf" IRI="http://xmlns.com/foaf/0.1/"/>
+    <Prefix name="ns" IRI="http://purl.org/net/opmv/ns#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="model" IRI="http://openprovenance.org/model/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Import>http://openprovenance.org/model/opmo-20101012.owl</Import>
+    <Import>http://purl.org/net/opmv/ns</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="terms:title"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The OPM OWL Ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:contributor"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Luc Moreau, Simon Miles, Paolo Missier, Paul Groth, Joe Futrelle, Li Ding,  Daniel Garijo Verdejo, Jeff Pan, Jun Zhao, Mike Jewell</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="terms:created"/>
+        <Literal datatypeIRI="&xsd;date">2010-10-12</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The OWL Ontology for the Open Provenance Model</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The OWL Ontology for the Open Provenance Model</Literal>
+    </Annotation>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#AValue"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#Account"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#Annotable"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#Annotation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#Edge"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#Entity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#EventEdge"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#Node"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#OPMGraph"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#OTime"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#Property"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#Role"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DataFile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#File"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HDFFile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hash"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MD5Hash"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NetCDFFile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Processing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Signature"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ns:Agent"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ns:Process"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="void:Dataset"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="foaf:Document"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#account"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#annotation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#avalue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#cause"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeUsed"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasControlledBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasDerivedFrom"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasGeneratedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasTriggeredBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#effect"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectInverse"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectUsed"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectUsedInverse"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledByInverse"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFrom"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFromInverse"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedByInverse"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredByInverse"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#endTime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasAccount"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasAgent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasArtifact"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasConstituent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasDependency"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasProcess"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#key"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#property"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#role"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#startTime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#time"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#usedStar"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#wasDerivedFromStar"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="model:opmo#wasGeneratedByStar"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFileRepresentation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFileType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSignature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sessionGeneratedArtifacts"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sessionUsedArtifacts"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="ns:used"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="ns:wasDerivedFrom"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="ns:wasGeneratedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="ns:wasTriggeredBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="void:exampleResource"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="model:opmo#content"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="model:opmo#datapropertyAbbreviation"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="model:opmo#encoding"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="model:opmo#exactlyAt"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="model:opmo#label"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="model:opmo#noEarlierThan"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="model:opmo#noLaterThan"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="model:opmo#pname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="model:opmo#profile"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="model:opmo#type"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="model:opmo#value"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasParameter"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasURI"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="terms:created"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="terms:modified"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="terms:title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:contributor"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="model:opmo#Annotable"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="model:opmo#Account"/>
+            <Class abbreviatedIRI="model:opmo#Annotation"/>
+            <Class abbreviatedIRI="model:opmo#Edge"/>
+            <Class abbreviatedIRI="model:opmo#Node"/>
+            <Class abbreviatedIRI="model:opmo#OPMGraph"/>
+            <Class abbreviatedIRI="model:opmo#Role"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="model:opmo#EventEdge"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="model:opmo#Used"/>
+            <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#AValue"/>
+        <Class abbreviatedIRI="model:opmo#Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#AValue"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="model:opmo#content"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#AValue"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="model:opmo#encoding"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Account"/>
+        <Class abbreviatedIRI="model:opmo#Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Annotable"/>
+        <Class abbreviatedIRI="model:opmo#Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Annotation"/>
+        <Class abbreviatedIRI="model:opmo#Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Edge"/>
+        <Class abbreviatedIRI="model:opmo#Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#EventEdge"/>
+        <Class abbreviatedIRI="model:opmo#Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Node"/>
+        <Class abbreviatedIRI="model:opmo#Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#OPMGraph"/>
+        <Class abbreviatedIRI="model:opmo#Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#OTime"/>
+        <Class abbreviatedIRI="model:opmo#Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Property"/>
+        <Class abbreviatedIRI="model:opmo#Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Property"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="model:opmo#value"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Property"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="model:opmo#value"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Role"/>
+        <Class abbreviatedIRI="model:opmo#Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Role"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="model:opmo#value"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+        <Class abbreviatedIRI="model:opmo#Edge"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeUsed"/>
+            <Class abbreviatedIRI="ns:Artifact"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectUsed"/>
+            <Class abbreviatedIRI="ns:Process"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#role"/>
+            <Class abbreviatedIRI="model:opmo#Role"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeUsed"/>
+            <Class abbreviatedIRI="ns:Artifact"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectUsed"/>
+            <Class abbreviatedIRI="ns:Process"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+        <Class abbreviatedIRI="model:opmo#Edge"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeWasControlledBy"/>
+            <Class abbreviatedIRI="ns:Agent"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledBy"/>
+            <Class abbreviatedIRI="ns:Process"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#role"/>
+            <Class abbreviatedIRI="model:opmo#Role"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeWasControlledBy"/>
+            <Class abbreviatedIRI="ns:Agent"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledBy"/>
+            <Class abbreviatedIRI="ns:Process"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+        <Class abbreviatedIRI="model:opmo#Edge"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeWasDerivedFrom"/>
+            <Class abbreviatedIRI="ns:Artifact"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFrom"/>
+            <Class abbreviatedIRI="ns:Artifact"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeWasDerivedFrom"/>
+            <Class abbreviatedIRI="ns:Artifact"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFrom"/>
+            <Class abbreviatedIRI="ns:Artifact"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+        <Class abbreviatedIRI="model:opmo#Edge"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeWasGeneratedBy"/>
+            <Class abbreviatedIRI="ns:Process"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedBy"/>
+            <Class abbreviatedIRI="ns:Artifact"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#role"/>
+            <Class abbreviatedIRI="model:opmo#Role"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeWasGeneratedBy"/>
+            <Class abbreviatedIRI="ns:Process"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedBy"/>
+            <Class abbreviatedIRI="ns:Artifact"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+        <Class abbreviatedIRI="model:opmo#Edge"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeWasTriggeredBy"/>
+            <Class abbreviatedIRI="ns:Process"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredBy"/>
+            <Class abbreviatedIRI="ns:Process"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeWasTriggeredBy"/>
+            <Class abbreviatedIRI="ns:Process"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredBy"/>
+            <Class abbreviatedIRI="ns:Process"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DataFile"/>
+        <Class IRI="#File"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DataFile"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasParameter"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#File"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#File"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hasSignature"/>
+            <Class IRI="#Signature"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#File"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasURI"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HDFFile"/>
+        <Class IRI="#DataFile"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hash"/>
+        <Class IRI="#Signature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MD5Hash"/>
+        <Class IRI="#Hash"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NetCDFFile"/>
+        <Class IRI="#DataFile"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Processing"/>
+        <Class abbreviatedIRI="ns:Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Processing"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasParameter"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Signature"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="model:opmo#value"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="ns:Agent"/>
+        <Class abbreviatedIRI="model:opmo#Node"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="ns:Artifact"/>
+        <Class abbreviatedIRI="model:opmo#Node"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="ns:Process"/>
+        <Class abbreviatedIRI="model:opmo#Node"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="ns:Process"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class abbreviatedIRI="void:Dataset"/>
+        <NamedIndividual abbreviatedIRI="model:opmo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual abbreviatedIRI="model:opmo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="foaf:Document"/>
+        <NamedIndividual abbreviatedIRI="model:opmo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual abbreviatedIRI="model:opmo#Used"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual abbreviatedIRI="ns:used"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual abbreviatedIRI="ns:wasControlledBy"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual abbreviatedIRI="ns:wasDerivedFrom"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual abbreviatedIRI="ns:wasGeneratedBy"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual abbreviatedIRI="ns:wasTriggeredBy"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="void:exampleResource"/>
+        <NamedIndividual abbreviatedIRI="model:opmo"/>
+        <NamedIndividual abbreviatedIRI="model:opmo#Used"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="terms:modified"/>
+        <NamedIndividual abbreviatedIRI="model:opmo"/>
+        <Literal datatypeIRI="&xsd;date">2010-10-13</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeUsed"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#cause"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasControlledBy"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#cause"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasDerivedFrom"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#cause"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasGeneratedBy"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#cause"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasTriggeredBy"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#cause"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectUsed"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effect"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectUsedInverse"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectInverse"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledBy"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effect"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledByInverse"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectInverse"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFrom"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effect"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFromInverse"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectInverse"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedBy"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effect"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedByInverse"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectInverse"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredBy"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effect"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredByInverse"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectInverse"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasAccount"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasConstituent"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasAgent"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasConstituent"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasArtifact"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasConstituent"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasDependency"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasConstituent"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasProcess"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasConstituent"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#sessionGeneratedArtifacts"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasArtifact"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#sessionUsedArtifacts"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasArtifact"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="ns:used"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#usedStar"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="ns:wasDerivedFrom"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#wasDerivedFromStar"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="ns:wasGeneratedBy"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#wasGeneratedByStar"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectInverse"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effect"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectUsedInverse"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectUsed"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledByInverse"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFromInverse"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFrom"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedByInverse"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredByInverse"/>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredBy"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#cause"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeUsed"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasControlledBy"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasDerivedFrom"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasGeneratedBy"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasTriggeredBy"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#effect"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectUsed"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledBy"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedBy"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredBy"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#endTime"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#key"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#role"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#startTime"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#time"/>
+    </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectUsedInverse"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledByInverse"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFromInverse"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedByInverse"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredByInverse"/>
+    </InverseFunctionalObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty abbreviatedIRI="model:opmo#wasDerivedFromStar"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#account"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="model:opmo#Annotation"/>
+            <Class abbreviatedIRI="model:opmo#Edge"/>
+            <Class abbreviatedIRI="model:opmo#Node"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#annotation"/>
+        <Class abbreviatedIRI="model:opmo#Annotable"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#avalue"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#cause"/>
+        <Class abbreviatedIRI="model:opmo#Edge"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeUsed"/>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasControlledBy"/>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasDerivedFrom"/>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasGeneratedBy"/>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasTriggeredBy"/>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#effect"/>
+        <Class abbreviatedIRI="model:opmo#Edge"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectInverse"/>
+        <Class abbreviatedIRI="model:opmo#Node"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectUsed"/>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectUsedInverse"/>
+        <Class abbreviatedIRI="ns:Process"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledBy"/>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledByInverse"/>
+        <Class abbreviatedIRI="ns:Process"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFrom"/>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFromInverse"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedBy"/>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedByInverse"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredBy"/>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredByInverse"/>
+        <Class abbreviatedIRI="ns:Process"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#endTime"/>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasAccount"/>
+        <Class abbreviatedIRI="model:opmo#OPMGraph"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasAgent"/>
+        <Class abbreviatedIRI="model:opmo#OPMGraph"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasArtifact"/>
+        <Class abbreviatedIRI="model:opmo#OPMGraph"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasConstituent"/>
+        <Class abbreviatedIRI="model:opmo#OPMGraph"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasDependency"/>
+        <Class abbreviatedIRI="model:opmo#OPMGraph"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasProcess"/>
+        <Class abbreviatedIRI="model:opmo#OPMGraph"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#key"/>
+        <Class abbreviatedIRI="model:opmo#Property"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#property"/>
+        <Class abbreviatedIRI="model:opmo#Annotation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#role"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="model:opmo#Used"/>
+            <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+            <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#startTime"/>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#time"/>
+        <Class abbreviatedIRI="model:opmo#EventEdge"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#usedStar"/>
+        <Class abbreviatedIRI="ns:Process"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#wasDerivedFromStar"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="model:opmo#wasGeneratedByStar"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#sessionGeneratedArtifacts"/>
+        <Class abbreviatedIRI="model:opmo#OPMGraph"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#sessionUsedArtifacts"/>
+        <Class abbreviatedIRI="model:opmo#OPMGraph"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#account"/>
+        <Class abbreviatedIRI="model:opmo#Account"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#annotation"/>
+        <Class abbreviatedIRI="model:opmo#Annotation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#avalue"/>
+        <Class abbreviatedIRI="model:opmo#AValue"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#cause"/>
+        <Class abbreviatedIRI="model:opmo#Node"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeUsed"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasControlledBy"/>
+        <Class abbreviatedIRI="ns:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasDerivedFrom"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasGeneratedBy"/>
+        <Class abbreviatedIRI="ns:Process"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#causeWasTriggeredBy"/>
+        <Class abbreviatedIRI="ns:Process"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#effect"/>
+        <Class abbreviatedIRI="model:opmo#Node"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectInverse"/>
+        <Class abbreviatedIRI="model:opmo#Edge"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectUsed"/>
+        <Class abbreviatedIRI="ns:Process"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectUsedInverse"/>
+        <Class abbreviatedIRI="model:opmo#Used"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledBy"/>
+        <Class abbreviatedIRI="ns:Process"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasControlledByInverse"/>
+        <Class abbreviatedIRI="model:opmo#WasControlledBy"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFrom"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFromInverse"/>
+        <Class abbreviatedIRI="model:opmo#WasDerivedFrom"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedBy"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedByInverse"/>
+        <Class abbreviatedIRI="model:opmo#WasGeneratedBy"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredBy"/>
+        <Class abbreviatedIRI="ns:Process"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredByInverse"/>
+        <Class abbreviatedIRI="model:opmo#WasTriggeredBy"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#endTime"/>
+        <Class abbreviatedIRI="model:opmo#OTime"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasAccount"/>
+        <Class abbreviatedIRI="model:opmo#Account"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasAgent"/>
+        <Class abbreviatedIRI="ns:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasArtifact"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasDependency"/>
+        <Class abbreviatedIRI="model:opmo#Edge"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#hasProcess"/>
+        <Class abbreviatedIRI="ns:Process"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#property"/>
+        <Class abbreviatedIRI="model:opmo#Property"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#role"/>
+        <Class abbreviatedIRI="model:opmo#Role"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#startTime"/>
+        <Class abbreviatedIRI="model:opmo#OTime"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#time"/>
+        <Class abbreviatedIRI="model:opmo#OTime"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#usedStar"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#wasDerivedFromStar"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="model:opmo#wasGeneratedByStar"/>
+        <Class abbreviatedIRI="ns:Process"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#sessionGeneratedArtifacts"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#sessionUsedArtifacts"/>
+        <Class abbreviatedIRI="ns:Artifact"/>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectUsedInverse"/>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeUsed"/>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="ns:used"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectWasDerivedFromInverse"/>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeWasDerivedFrom"/>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="ns:wasDerivedFrom"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectWasGeneratedByInverse"/>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeWasGeneratedBy"/>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="ns:wasGeneratedBy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty abbreviatedIRI="model:opmo#effectWasTriggeredByInverse"/>
+            <ObjectProperty abbreviatedIRI="model:opmo#causeWasTriggeredBy"/>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="ns:wasTriggeredBy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty abbreviatedIRI="model:opmo#wasDerivedFromStar"/>
+            <ObjectProperty abbreviatedIRI="ns:wasGeneratedBy"/>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="model:opmo#wasGeneratedByStar"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty abbreviatedIRI="ns:used"/>
+            <ObjectProperty abbreviatedIRI="model:opmo#wasDerivedFromStar"/>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="model:opmo#usedStar"/>
+    </SubObjectPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI="model:opmo#label"/>
+        <DataProperty abbreviatedIRI="model:opmo#datapropertyAbbreviation"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI="model:opmo#pname"/>
+        <DataProperty abbreviatedIRI="model:opmo#datapropertyAbbreviation"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI="model:opmo#profile"/>
+        <DataProperty abbreviatedIRI="model:opmo#datapropertyAbbreviation"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI="model:opmo#type"/>
+        <DataProperty abbreviatedIRI="model:opmo#datapropertyAbbreviation"/>
+    </SubDataPropertyOf>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="model:opmo#content"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="model:opmo#encoding"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="model:opmo#exactlyAt"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="model:opmo#noEarlierThan"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="model:opmo#noLaterThan"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="model:opmo#value"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="model:opmo#content"/>
+        <Class abbreviatedIRI="model:opmo#AValue"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="model:opmo#datapropertyAbbreviation"/>
+        <Class abbreviatedIRI="model:opmo#Annotable"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="model:opmo#encoding"/>
+        <Class abbreviatedIRI="model:opmo#AValue"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="model:opmo#exactlyAt"/>
+        <Class abbreviatedIRI="model:opmo#OTime"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="model:opmo#label"/>
+        <Class abbreviatedIRI="model:opmo#Annotable"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="model:opmo#noEarlierThan"/>
+        <Class abbreviatedIRI="model:opmo#OTime"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="model:opmo#noLaterThan"/>
+        <Class abbreviatedIRI="model:opmo#OTime"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="model:opmo#pname"/>
+        <Class abbreviatedIRI="model:opmo#Annotable"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="model:opmo#profile"/>
+        <Class abbreviatedIRI="model:opmo#Annotable"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="model:opmo#type"/>
+        <Class abbreviatedIRI="model:opmo#Annotable"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="model:opmo#value"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="model:opmo#Property"/>
+            <Class abbreviatedIRI="model:opmo#Role"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="model:opmo#content"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="model:opmo#encoding"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="model:opmo#exactlyAt"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="model:opmo#label"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="model:opmo#noEarlierThan"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="model:opmo#noLaterThan"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="model:opmo#pname"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="model:opmo#profile"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="model:opmo#type"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasURI"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#AValue</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The serial representation of an artifact Value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#AValue</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#AValue</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">AValue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#Account</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The class representing an OPM Account.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#Account</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#Account</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Account</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#Annotable</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The set of OPM entities that can be annotated.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#Annotable</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#Annotable</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Annotable</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#Annotation</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">OPM class used to annotate Annotable entities.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#Annotation</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#Annotation</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Annotation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#Edge</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">A (causal) relationship is represented by an arc and denotes the presence of a dependency between the source of the arc (the effect) and the destination of the arc (the cause).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#Edge</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#Edge</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Edge</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#Entity</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The class of all constituents of an OPM graph.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#Entity</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#Entity</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Entity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#EventEdge</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">An EventEdge denotes an Edge associated with a time instant.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#EventEdge</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#EventEdge</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">EventEdge</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#Node</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Node is the class of nodes in an OPM graph. Nodes can be a source or effect of edges.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#Node</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#Node</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Node</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#OPMGraph</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The class of all OPM graphs.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#OPMGraph</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#OPMGraph</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">OPMGraph</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#OTime</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Observed time.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#OTime</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#OTime</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">OTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#Property</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Building block allowing for the construction of annotations.  It consists of key-value pair.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#Property</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#Property</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Property</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#Role</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">A role designates an artifact’s or agent’s function in a process. Roles are constituents of “used”, “was generated by”, and “was controlled by” edges, aimed at distinguishing the nature of the dependency when multiple such edges are connected to a same process.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#Role</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#Role</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#Used</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">A “used” edge from process to an artifact is a relationship intended to indicate that the process required the availability of the artifact to be able to complete its execution. When several artifacts are connected to a same process by multiple “used” edges, all of them were required for the process to complete.
+
+Used is a class that  encompasses all the properties defined by OPM for this kind of edge. It is a reification of the opmv:used property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#Used</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#Used</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Used</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>model:opmo#Used</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo#Used</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#WasControlledBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">An edge “was controlled by” from a process P to an agent Ag is a  dependency that indicates that the start and end of process P was controlled by agent Ag.
+
+WasControlledBy is a class that  encompasses all the properties defined by OPM for this kind of edge. It is a reification of the opmv:wasControlledBy property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#WasControlledBy</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#WasControlledBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">WasControlledBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>model:opmo#WasControlledBy</AbbreviatedIRI>
+        <AbbreviatedIRI>ns:wasControlledBy</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#WasDerivedFrom</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">An edge “was derived from” from artifact A2 to artifact A1 is a relationship that indicates that artifact A1 needs to have been generated for A2 to be generated. The piece of state associated with A2 is dependent on the presence of A1 or on the piece of state associated with A1 .
+
+WasDerivedFrom is a class that  encompasses all the properties defined by OPM for this kind of edge. It is a reification of the opmv:wasDerivedFrom property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#WasDerivedFrom</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#WasDerivedFrom</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">WasDerivedFrom</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>model:opmo#WasDerivedFrom</AbbreviatedIRI>
+        <AbbreviatedIRI>ns:wasDerivedFrom</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#WasGeneratedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">A “was generated by” edge from an artifact to a process is a relationship intended to mean that the process was required to initiate its execution for the artifact to have been generated. When several artifacts are connected to a same process by multiple “was generated by” edges, the process had to have begun, for all of them to be generated.
+
+WasGeneratedBy is a class that  encompasses all the properties defined by OPM for this kind of edge. It is a reification of the opmv:wasGeneratedBy property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#WasGeneratedBy</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#WasGeneratedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">WasGeneratedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>model:opmo#WasGeneratedBy</AbbreviatedIRI>
+        <AbbreviatedIRI>ns:wasGeneratedBy</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#WasTriggeredBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">An edge “was triggered by” from a process P2 to a process P1 is a causal dependency that indicates that the start of process P1 was required for P2 to be able to complete.
+
+WasTriggeredBy is a class that  encompasses all the properties defined by OPM for this kind of edge. It is a reification of the opmv:wasTriggeredBy property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#WasTriggeredBy</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#WasTriggeredBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">WasTriggeredBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>model:opmo#WasTriggeredBy</AbbreviatedIRI>
+        <AbbreviatedIRI>ns:wasTriggeredBy</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#account</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Object Property to express the member of an OPM entity to some Account.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#account</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#account</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">account</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#annotation</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Object property to associate an Annotable entity and an Annotation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#annotation</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#annotation</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">annotation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#avalue</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Denotes a serialization of an application value associated with an Artifact. Such serialization should have a type (expressed in a type system suitable for the serialization). Serialization technologies include XML, JSON, and ntriples.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#avalue</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#avalue</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">avalue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#cause</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The cause of an Edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#cause</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#cause</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">cause</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#causeUsed</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The cause of a Used edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#causeUsed</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#causeUsed</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">causeUsed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#causeWasControlledBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The cause of a WasControlledBy edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#causeWasControlledBy</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#causeWasControlledBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">causeWasControlledBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#causeWasDerivedFrom</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The cause of a WasDerivedFrom edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#causeWasDerivedFrom</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#causeWasDerivedFrom</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">causeWasDerivedFrom</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#causeWasGeneratedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The cause of a WasGeneratedBy edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#causeWasGeneratedBy</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#causeWasGeneratedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">causeWasGeneratedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#causeWasTriggeredBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The cause of a WasTriggeredBy edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#causeWasTriggeredBy</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#causeWasTriggeredBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">causeWasTriggeredBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#content</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Content of the serial representation of Artifact.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#content</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#content</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">content</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#datapropertyAbbreviation</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The OPM Ontology offers several data properties that are abbreviation of common properties defined by OPM.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#datapropertyAbbreviation</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#datapropertyAbbreviation</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">datapropertyAbbreviation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#effect</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The effect of an Edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#effect</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#effect</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">effect</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#effectInverse</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Convenience class introduced to describe the inverse of an effect. It is used to express property chains.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#effectInverse</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#effectInverse</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">effectInverse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#effectUsed</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The effect of a Used edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#effectUsed</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#effectUsed</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">effectUsed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#effectUsedInverse</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The cause of a Process by means of a Used edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#effectUsedInverse</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#effectUsedInverse</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">effectUsedInverse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#effectWasControlledBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The effect of a WasControlledBy edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#effectWasControlledBy</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#effectWasControlledBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">effectWasControlledBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#effectWasControlledByInverse</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The cause of a Process by means of a WasControlledBy edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#effectWasControlledByInverse</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#effectWasControlledByInverse</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">effectWasControlledByInverse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#effectWasDerivedFrom</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The effect of a WasDerivedFrom edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#effectWasDerivedFrom</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#effectWasDerivedFrom</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">effectWasDerivedFrom</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#effectWasDerivedFromInverse</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The cause of an Artifact by means of a WasDerivedFrom edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#effectWasDerivedFromInverse</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#effectWasDerivedFromInverse</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">effectWasDerivedFromInverse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#effectWasGeneratedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The effect of a WasGeneratedBy edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#effectWasGeneratedBy</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#effectWasGeneratedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">effectWasGeneratedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#effectWasGeneratedByInverse</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The cause of an Artifact by means of a WasGeneratedBy edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#effectWasGeneratedByInverse</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#effectWasGeneratedByInverse</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">effectWasGeneratedByInverse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#effectWasTriggeredBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The effect of a WasTriggeredBy edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#effectWasTriggeredBy</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#effectWasTriggeredBy</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">effectWasTriggeredBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#effectWasTriggeredByInverse</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The cause of a Process by means of a WasTriggeredBy edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#effectWasTriggeredByInverse</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#effectWasTriggeredByInverse</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">effectWasTriggeredByInverse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#encoding</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Denotes how a serialization was constructed. For instance, using the Java bean serializer to create an XML document, by applying a specified transformation to the application data, e.g. anonymisation, by passing a reference to the actual value, or by creating a set of RDF triples.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#encoding</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#encoding</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">encoding</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#endTime</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The time at which the agent ended controlling a process.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#endTime</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#endTime</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">endTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#exactlyAt</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The event occurred exactly at this time. This is meant to be an abbreviation for an OTime where noEarlierThan and noLaterThan are identical. exactlyAt should be  disjoint from noLaterThan  U noEarlierThan.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#exactlyAt</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#exactlyAt</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">exactlyAt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#hasAccount</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Property that denotes the constituency relationship between an OPM graph and an account, meaning that the object of this property is an account of the subject.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#hasAccount</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#hasAccount</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">hasAccount</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#hasAgent</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Property that denotes the constituency relationship between an OPM graph and an agent, meaning that the object of this property is an agent of the subject.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#hasAgent</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#hasAgent</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">hasAgent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#hasArtifact</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Property that denotes the constituency relationship between an OPM graph and an artifact, meaning that the object of this property is an artifact of the subject.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#hasArtifact</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#hasArtifact</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">hasArtifact</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#hasConstituent</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">(Abstract) Property that denotes the constituency relationship between an OPM graph and one of its constituent entity, meaning that the object of this property is a constituent of the subject.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#hasConstituent</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#hasConstituent</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">hasContituent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#hasDependency</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Property that denotes the constituency relationship between an OPM graph and an edge, meaning that the object of this property is an edge of the subject.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#hasDependency</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#hasDependency</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">hasDependency</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#hasProcess</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Property that denotes the constituency relationship between an OPM graph and a process, meaning that the object of this property is a process of the subject.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#hasProcess</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#hasProcess</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">hasProcess</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#key</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The key of a Property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#key</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#key</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">key</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#label</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">This property provides a human-readable version of an OPM entity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#label</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#label</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">label</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#noEarlierThan</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">the event occurred no earlier than this time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#noEarlierThan</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#noEarlierThan</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">noEarlierThan</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#noLaterThan</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">the event occurred no later than this time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#noLaterThan</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#noLaterThan</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">noLaterThan</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#pname</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The persistent name of an entity.  Denotes a persistent name that can be used by OPM graph queriers to compare OPM entities across graphs. The scope of this name is intended to be global.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#pname</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#pname</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">pname</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#profile</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">This property applies to an OPM graph and denotes a profile that is supported by that graph.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#profile</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#profile</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">profile</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#property</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">Object Property that associates an Annotation instance with a (set of) Propery(ies).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#property</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#property</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">property</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#role</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The role of an edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#role</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#role</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#startTime</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The time at which the agent began controlling a process.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#startTime</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#startTime</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">startTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#time</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">A piece of timing information associated with an EventEdge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#time</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#time</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#type</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">The subtype of an entity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#type</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#type</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#usedStar</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">A multi-step used property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#usedStar</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#usedStar</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">used*</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#value</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">the value of a role or a property</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#value</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#value</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#wasDerivedFromStar</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">the transitive closure of wasDerivedFrom</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#wasDerivedFromStar</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#wasDerivedFromStar</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">wasDerivedFrom*</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>model:opmo#wasGeneratedByStar</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">A multi-step wasGeneratedBy edge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>model:opmo#wasGeneratedByStar</AbbreviatedIRI>
+        <AbbreviatedIRI>model:opmo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>model:opmo#wasGeneratedByStar</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">wasGeneratedBy*</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Processing</IRI>
+        <Literal datatypeIRI="&xsd;string">Intended to be analogous to ISO 19115-2 LE_Processing. softwareReference is backed by an executable. runtime parameters is backed by parameters.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>ns:wasDerivedFrom</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://openprovenance.org/opmo#WasDerivedFrom</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
